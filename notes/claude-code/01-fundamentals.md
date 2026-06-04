@@ -1,31 +1,156 @@
-1. 7 levels pyramids to become claude code expert
-    1.1 Foundation(Installing & Running Claude code)
-        - ลงผ่าน CMD ด้วย NPM ก็ได้สำหรับ Windows
-        - Install application desktop โดยโหลดจาก official website ก็ได้ 
-    1.2 Pick your AI teammate 
-        - สิ่งสำคัญที่สุดคือเลือก AI ให้เหมาะกับงาน
-        - Opus 4.8 → "Senior Engineer": เหมาะกับงานวางแผนหรือ ambiguous task (ใช้ token เยอะ)
-        - Sonnet 4.6 → "Engineer": สมดุลระหว่างความสามารถกับความเร็ว เหมาะงานทั่วไป
-        - Haiku 4.5 → "Junior": เร็วและถูก เหมาะงานเล็กที่ไม่ซับซ้อน
-    1.3 Setup AI team rule 
-        - สร้างไฟล์ที่ชื่อ claude.md ที่ root ของโปรเจคเพื่อเป็น Instruction ให้ AI
-        - More detail include, the better result you'll get.
-        - เพิ่มประสิทธิภาพด้วยการสร้าง strategy ต่างๆ เช่น Branching, Commit style, Coding guidline, หรือ testing rule เป็นต้น
-        - สร้าง .md แยกไว้สำหรับ prompt ที่ใช้บ่อย แล้ว import เข้า claude.md หลักด้วย @filename
-            - ตัวอย่าง: มี testing.md ที่กำหนด rule ว่าทุก UI Component ต้องมี unit test + web driver test
-            - เวลา prompt แค่เพิ่ม @testing.md ต่อท้าย แทนที่จะพิมพ์ rule ซ้ำทุกครั้ง
-    1.4 AI debugging(UI&CSS)
-        - แคปรูปให้ AI แก้ไข CSS บางอย่างได้เลยเช่นสีของปุ่มเป็นต้น
-    1.5 AI Enhanced Multitasking
-        - Messaging Queue features ของ Claude Code ช่วยให้เราพิมพ์ prompt ต่อๆกันได้เลยโดยที่เราไม่ต้องรอให้ process ของ prompt ก่อนหน้าทำงานจนเสร็จก่อน
-    1.6 Ultra planning
-        - Feature ที่ทรงพลังที่สุดของ Claude คือ Plan mode ทุกครั้งที่เรา prompt อะไรไปมันจะไม่ได้ code เลยทันทีแต่จะวิเคราะห์ก่อนลงมือทำ
-        - มี 3 levels — ใส่ keyword เหล่านี้ลงใน prompt ได้เลย (ยิ่งสูง ยิ่งกิน token มาก):
-            - `think` → วิเคราะห์ทั่วไป
-            - `think harder` → วิเคราะห์ลึกขึ้น
-            - `ultrathink` → วิเคราะห์เต็มที่ที่สุด
-        - สามารถ prompt ให้สร้าง sub-agents ได้ เพราะงาน 1 task จริงๆ ใช้ dev หลายคน (FE, BE, DBA)
-            - แค่ระบุใน prompt ว่าต้องการ agent กี่ตัว แต่ละตัวทำอะไร Claude จะแบ่งงานให้เอง
-    1.7 AI Enhanced Collaborations
-        - ตัวอย่างที่เห็นได้ชัดเจนที่สุดตัวอย่างนึงคือ Github หากเรา implement Claude ด้วย Github actions เราสามารถให้ Claude ช่วยรีวิวโค้ดหรือ scan security issues ได้เลยโดยแค่แท็ก @claude ใน comment ของ PR นั้นๆ
-    1.8 หลักการเขียน claude.md ที่ดีจะกล่าวถึงในภายหลังในข้อ 2.2
+# Claude Code Fundamentals: 7 Levels of Mastery
+
+> A progressive learning path from beginner to expert in Claude Code.
+
+## Overview
+
+After studying Claude Code, I've organized the knowledge into 
+**7 progressive levels**. Each level builds on the previous one.
+
+---
+
+## Level 1: Foundation — Installing & Running
+
+### Installation Options
+
+**Windows / Cross-platform (via NPM):**
+
+\`\`\`bash
+npm install -g @anthropic-ai/claude-code
+\`\`\`
+
+**Desktop Application:**
+
+Download from the [official Anthropic website](https://www.anthropic.com/claude-code).
+
+### Verify Installation
+
+\`\`\`bash
+claude --version
+\`\`\`
+
+---
+
+## Level 2: Pick Your AI Teammate
+
+Choosing the right model is critical for **cost-efficiency**.
+
+| Model | Role | Best For | Token Cost |
+|-------|------|----------|------------|
+| **Opus 4.8** | Senior Engineer | Planning, ambiguous tasks | High 💰💰💰 |
+| **Sonnet 4.6** | Engineer | General work (balanced) | Medium 💰💰 |
+| **Haiku 4.5** | Junior | Small, simple tasks | Low 💰 |
+
+> 💡 **Pro Tip:** Start with Sonnet for daily work, switch to Opus for complex planning.
+
+---
+
+## Level 3: Setup AI Team Rules
+
+Create `CLAUDE.md` at project root to instruct Claude.
+
+### Key Principles
+
+- **More detail = better results** (within token limits)
+- Add strategies: branching, commit style, coding guidelines, testing rules
+- Use `@filename` to import other `.md` files
+
+### Example Structure
+
+\`\`\`markdown
+# Project Guidelines
+
+@testing.md
+@security.md
+
+## Common Commands
+- npm run dev
+- npm test
+\`\`\`
+
+---
+
+## Level 4: AI Debugging (UI & CSS)
+
+Send **screenshots** to Claude for visual debugging.
+
+**Example use case:**
+> "The button color doesn't match this design. Fix it."
+
+Claude can analyze the screenshot and update CSS accordingly.
+
+---
+
+## Level 5: AI-Enhanced Multitasking
+
+**Messaging Queue feature:**
+- Type next prompts without waiting for previous to complete
+- Claude processes them sequentially
+
+This is huge for productivity — no more waiting!
+
+---
+
+## Level 6: Ultra Planning (Plan Mode) ⭐
+
+Claude's **most powerful feature** — analysis before action.
+
+### 3 Levels of Thinking
+
+| Keyword | Use Case | Token Usage |
+|---------|----------|-------------|
+| `think` | General analysis | Low |
+| `think harder` | Deeper analysis | Medium |
+| `ultrathink` | Maximum depth | High |
+
+### Sub-Agents Pattern
+
+Real tasks need multiple roles (Frontend, Backend, DBA).
+
+**How to use:**
+\`\`\`
+"Plan this feature using 3 sub-agents:
+- Frontend agent for UI
+- Backend agent for API
+- Database agent for schema"
+\`\`\`
+
+Claude will distribute the work automatically.
+
+---
+
+## Level 7: AI-Enhanced Collaboration
+
+### GitHub Integration
+
+Tag `@claude` in PR comments to trigger:
+- ✅ Code review
+- ✅ Security scans
+- ✅ Bug detection
+
+### Example Workflow
+
+\`\`\`
+Comment on PR: "@claude review this PR for security issues"
+→ Claude analyzes and replies in the thread
+\`\`\`
+
+---
+
+## Key Takeaways
+
+1. ✅ Start simple — NPM install + basic prompts
+2. ✅ Match model to task complexity (save tokens)
+3. ✅ CLAUDE.md is your foundation
+4. ✅ Use `ultrathink` for complex problems
+5. ✅ Plan mode prevents wasted work
+6. ✅ Integrate with GitHub for team collaboration
+
+## Sources
+
+- [Anthropic Claude Code Documentation](https://docs.claude.com/en/docs/claude-code/overview)
+- Personal experimentation (June 2026)
+
+---
+
+> Next: [CLAUDE.md Best Practices](./02-claude-md-best-practices.md)
