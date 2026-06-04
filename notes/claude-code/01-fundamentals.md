@@ -137,6 +137,22 @@ Comment on PR: "@claude review this PR for security issues"
 
 ---
 
+## Common Pitfalls
+
+- **Using Opus for every task** — Model selection is a cost decision. Opus for a simple typo fix burns ~10x the tokens Haiku would. Match the model to the task complexity.
+
+- **Skipping installation verification** — `claude --version` failing silently usually means the npm global bin path is not on `PATH`. Always verify before assuming Claude Code itself is broken.
+
+- **Treating CLAUDE.md as optional** — Without it, Claude has zero project context and makes generic decisions every session. It is the foundation that everything else in this list builds on.
+
+- **Using `ultrathink` on routine prompts** — It triggers maximum-depth reasoning at high token cost. Reserve it for genuinely ambiguous, high-stakes tasks like architecture decisions or complex debugging.
+
+- **Queuing too many messages expecting parallelism** — The message queue (Level 5) is sequential, not parallel. Queuing 10 tasks means task 10 waits for tasks 1–9 to finish. Use sub-agents for true parallel execution.
+
+- **Skipping Plan Mode for complex tasks** — Jumping straight to implementation without `think harder` or Plan Mode is the leading cause of wasted work. Claude will confidently build the wrong thing.
+
+---
+
 ## Key Takeaways
 
 1. ✅ Start simple — NPM install + basic prompts
