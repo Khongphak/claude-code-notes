@@ -49,7 +49,33 @@ When creating or editing notes, follow these conventions:
 - Prefix with number for ordering: `01-fundamentals.md`
 - Be descriptive: `mcp-server-tutorial.md` not `mcp.md`
 
-## IMPORTANT: Things to Watch Out For
+## IMPORTANT: Workflow Rules (READ FIRST)
+
+### Scope Control — MUST FOLLOW
+
+- **ONE file per request by default** — If I ask to modify a file, modify ONLY that file
+- **DO NOT touch other files** unless I explicitly list them
+- If a task seems to require multiple files, STOP and ask for explicit confirmation listing each file
+- When in doubt, ASK before acting
+
+### Git Workflow — MUST FOLLOW
+
+- **NEVER auto-commit** changes — I review and commit manually
+- **NEVER auto-push** to remote
+- **NEVER run `git add`, `git commit`, or `git push`** unless I explicitly say "commit this" or "push this"
+- After making file changes, STOP and let me review with `git diff`
+- If I want a commit message, I will ask: "suggest a commit message"
+
+### Plan Mode Rules — MUST FOLLOW
+
+- When I use keywords `think`, `think harder`, or `ultrathink`:
+  - Show the plan FIRST
+  - WAIT for my explicit approval ("yes proceed" / "go ahead")
+  - Do NOT execute any changes until approved
+- Even after showing a plan, do NOT assume approval — wait for confirmation
+- If I say "show me the plan", that means PLAN ONLY — no execution
+
+### Content Rules
 
 - DO NOT mix Thai and English in the same file
 - DO NOT commit work-related/confidential information
@@ -63,14 +89,14 @@ When creating or editing notes, follow these conventions:
 # Preview markdown locally (if using VS Code)
 # Press Ctrl+Shift+V (or Cmd+Shift+V on Mac)
 
-# Commit with conventional format
-git add .
-git commit -m "docs: add notes about [topic]"
-git push
-
 # Check what's changed
 git status
 git diff
+
+# Commit with conventional format (manual only!)
+git add <specific-file>
+git commit -m "docs: add notes about [topic]"
+git push
 ```
 
 ## Commit Convention
