@@ -108,7 +108,7 @@ Claude's **most powerful feature** — analysis before action.
 Real tasks need multiple roles (Frontend, Backend, DBA).
 
 **How to use:**
-\`\`\`
+\`\`\`text
 "Plan this feature using 3 sub-agents:
 - Frontend agent for UI
 - Backend agent for API
@@ -130,7 +130,7 @@ Tag `@claude` in PR comments to trigger:
 
 ### Example Workflow
 
-\`\`\`
+\`\`\`text
 Comment on PR: "@claude review this PR for security issues"
 → Claude analyzes and replies in the thread
 \`\`\`
