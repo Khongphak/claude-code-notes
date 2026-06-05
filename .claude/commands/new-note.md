@@ -6,20 +6,27 @@ description: Create a new technical note following CLAUDE.md writing standards
 
 Topic: $ARGUMENTS
 
-Create a new note file with the following structure:
+Follow these steps to create a new note:
 
-1. Determine the correct folder based on the topic:
-   - Claude Code related → `notes/claude-code/`
-   - MCP related → `notes/mcp/`
-   - Next.js related → `notes/nextjs/`
-   - TypeScript related → `notes/typescript/`
+## 1. Determine Folder
 
-2. Generate a filename:
-   - Check existing files in the folder for the next number
-   - Use kebab-case: `0X-topic-name.md`
-   - Be descriptive
+Based on the topic, choose the correct folder:
+- Claude Code, CLAUDE.md, Skills → `notes/claude-code/`
+- MCP, Model Context Protocol → `notes/mcp/`
+- Next.js, React, App Router → `notes/nextjs/`
+- TypeScript, Generics, Types → `notes/typescript/`
 
-3. Use this template:
+## 2. Generate Filename
+
+- Check existing files in the chosen folder to find the next number
+- Use kebab-case format: `0X-topic-name.md`
+- Be descriptive but concise
+
+Examples:
+- `02-server-components.md`
+- `03-react-hooks-patterns.md`
+
+## 3. Use This Template
 
 ```markdown
 # [Title]
@@ -34,14 +41,19 @@ Create a new note file with the following structure:
 
 [Content with code examples]
 
+\`\`\`typescript
+// Example code with language tag
+\`\`\`
+
 ## [Main Section 2]
 
-[More content]
+[More content - tables, lists, examples]
 
 ## Common Pitfalls
 
-- **[Pitfall name]** — [Explanation]
-- **[Pitfall name]** — [Explanation]
+- **[Pitfall name]** — [Brief explanation]
+- **[Pitfall name]** — [Brief explanation]
+- **[Pitfall name]** — [Brief explanation]
 
 ## Sources
 
@@ -50,8 +62,11 @@ Create a new note file with the following structure:
 
 ## Next
 
-- `0X-next-topic.md` — [What's coming next]
+- `0X-next-topic.md` — [What's coming next in this series]
 ```
 
-4. Show me the file path and content
-5. DO NOT commit — wait for my review
+## 4. After Creating
+
+- Show me the full file path and content
+- DO NOT commit to git
+- Wait for my review before any further action
